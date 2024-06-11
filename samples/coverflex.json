@@ -1,0 +1,109 @@
+{
+  "movements": {
+    "list": [
+      {
+        "id": "123456",
+        "status": "confirmed",
+        "type": "purchase",
+        "description": "COMPRA 1",
+        "category": "meals",
+        "amount": {
+          "currency": "EUR",
+          "amount": 3688
+        },
+        "is_debit": true,
+        "pocket_id": "123456",
+        "executed_at": "2024-06-02T12:28:45.839000Z",
+        "subcategory": null,
+        "pocket": {
+          "id": "123456",
+          "type": "meals",
+          "owner_id": "123456",
+          "provider_id": "123456",
+          "owner_type": "employee",
+          "has_movements": true
+        },
+        "balance_after": {
+          "currency": "EUR",
+          "amount": 15832
+        },
+        "balance_before": {
+          "currency": "EUR",
+          "amount": 19520
+        },
+        "merchant_name": "Merchant 1",
+        "is_transfer_adjustment": false
+      },
+      {
+        "id": "abcdef",
+        "status": "confirmed",
+        "type": "purchase",
+        "description": "COMPRA 2",
+        "category": "meals",
+        "amount": {
+          "currency": "EUR",
+          "amount": 1083
+        },
+        "is_debit": true,
+        "pocket_id": "abcdef",
+        "executed_at": "2024-05-31T19:19:51.893000Z",
+        "subcategory": null,
+        "pocket": {
+          "id": "abcdef",
+          "type": "meals",
+          "owner_id": "abcdef",
+          "provider_id": "abcdef",
+          "owner_type": "employee",
+          "has_movements": true
+        },
+        "balance_after": {
+          "currency": "EUR",
+          "amount": 19520
+        },
+        "balance_before": {
+          "currency": "EUR",
+          "amount": 20603
+        },
+        "merchant_name": "Merchant 2",
+        "is_transfer_adjustment": false
+      },
+      {
+        "id": "ghjkl",
+        "status": "confirmed",
+        "type": "transfer",
+        "description": "COVERFLEX TOPUP",
+        "category": null,
+        "amount": {
+          "currency": "EUR",
+          "amount": 20160
+        },
+        "is_debit": false,
+        "pocket_id": "ghjkl",
+        "executed_at": "2024-05-28T10:21:56.442000Z",
+        "subcategory": null,
+        "pocket": {
+          "id": "ghjkl",
+          "type": "meals",
+          "owner_id": "ghjkl",
+          "provider_id": "ghjkl",
+          "owner_type": "employee",
+          "has_movements": true
+        },
+        "balance_after": {
+          "currency": "EUR",
+          "amount": 20603
+        },
+        "balance_before": {
+          "currency": "EUR",
+          "amount": 443
+        },
+        "merchant_name": null,
+        "is_transfer_adjustment": false
+      },
+    ],
+    "total_pages": 1,
+    "total_results": 3,
+    "current_page": 1,
+    "results_per_page": 3
+  }
+}
