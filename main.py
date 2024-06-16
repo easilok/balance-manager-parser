@@ -1,4 +1,6 @@
 import argparse
+from typing import Any, Dict, List, Union
+import toml
 from models.coverflex import CoverflexBalance
 
 
@@ -13,6 +15,17 @@ def init_cli() -> argparse.ArgumentParser:
     parser.add_argument("balance")
 
     return parser
+
+
+def load_config(filepath="config.toml") -> Union[None, Dict[str, Any]]:
+    config = None
+    try:
+        with open(filepath, "r") as f:
+            config = toml.load(f)
+    except BaseException:
+        pass
+
+    return config
 
 
 def main():
