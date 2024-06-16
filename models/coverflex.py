@@ -1,12 +1,12 @@
 import os
 import json
 import datetime as dt
-from typing import Dict, List
+from typing import Dict, List, Union
 from models.balance import Balance
 
 
 class CoverflexBalance:
-    def __init__(self, filepath: str, bank_id=1):
+    def __init__(self, filepath: str, bank_id: Union[None, int]=None):
         self.filepath = filepath
         self.bank_id = bank_id
         self.movements: List[Balance] = []
