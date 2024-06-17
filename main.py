@@ -2,6 +2,7 @@ import argparse
 from typing import Any, Dict, List, Union
 import toml
 from models.coverflex import CoverflexBalance
+from services.balance_api import BalanceAPI
 
 
 def init_cli(bank_names: List[str]) -> argparse.ArgumentParser:
@@ -29,11 +30,11 @@ def load_config(filepath="config.toml") -> Union[None, Dict[str, Any]]:
 
 
 def main():
-    bank_names=[]
+    bank_names = []
 
     config = load_config()
     if config is not None and "banks" in config:
-        bank_names=list(config["banks"])
+        bank_names = list(config["banks"])
 
     parser = init_cli(bank_names)
     args = parser.parse_args()
@@ -45,6 +46,9 @@ def main():
         bank_id = config["banks"]["coverflex"] if config is not None else None
         coverflex = CoverflexBalance(args.balance, bank_id)
         print(coverflex.movements)
+        balance_api = BalanceAPI(config["api"] if config is not None else None)
+        response = balance_api.bulk_create_balances(coverflex.movements)
+        print(response)
 
 
 if __name__ == "__main__":
