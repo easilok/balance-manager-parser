@@ -15,10 +15,11 @@ class BalanceModelTest(unittest.TestCase):
 
         balance_dict = balance.to_dict()
 
-        self.assertEqual(balance_dict["date"], registered_at.isoformat())
+        balance_date = registered_at.strftime("%Y-%m-%d")
+        self.assertEqual(balance_dict["date"], balance_date)
         self.assertEqual(balance_dict["description"], "desc")
         self.assertEqual(balance_dict["value"], 12.43)
         self.assertEqual(balance_dict["credit"], False)
         self.assertEqual(balance_dict["balance"], 1000.21)
         self.assertEqual(balance_dict["bank_id"], 1)
-        self.assertEqual(balance_dict["createData"], f"{registered_at.isoformat()};desc;False;12.43;1000.21")
+        self.assertEqual(balance_dict["createData"], f"{balance_date};desc;False;12.43;1000.21")
