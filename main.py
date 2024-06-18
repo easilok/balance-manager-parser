@@ -2,6 +2,7 @@ import argparse
 from typing import Any, Dict, List, Union
 import toml
 from models.coverflex import CoverflexBalance
+from models.revolut import RevolutBalance
 from services.balance_api import BalanceAPI
 
 
@@ -48,6 +49,13 @@ def main():
         print(coverflex.movements)
         balance_api = BalanceAPI(config["api"] if config is not None else None)
         response = balance_api.bulk_create_balances(coverflex.movements)
+        print(response)
+    elif args.bank == "revolut":
+        bank_id = config["banks"]["revolut"] if config is not None else None
+        revolut = RevolutBalance(args.balance, bank_id)
+        print(revolut.movements)
+        balance_api = BalanceAPI(config["api"] if config is not None else None)
+        response = balance_api.bulk_create_balances(revolut.movements)
         print(response)
 
 
