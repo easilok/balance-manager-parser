@@ -60,7 +60,7 @@ class CoverflexBalance:
 
             balance = Balance(
                 description=movement["description"],
-                value=movement["amount"]["amount"] / 100,
+                value=abs(movement["amount"]["amount"] / 100),
                 credit=not movement["is_debit"],
                 balance=movement["balance_after"]["amount"] / 100,
                 registered_at=self.parse_datetime(movement["executed_at"]),

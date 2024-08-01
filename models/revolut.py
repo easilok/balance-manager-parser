@@ -59,7 +59,7 @@ class RevolutBalance:
 
             balance = Balance(
                 description=movement["description"],
-                value=float(movement["amount"]),
+                value=abs(float(movement["amount"])),
                 credit=movement["type"] == "TOPUP",
                 balance=float(movement["balance"]) if len(movement["balance"]) > 0 else 0,
                 registered_at=self.parse_datetime(movement["started date"]),
